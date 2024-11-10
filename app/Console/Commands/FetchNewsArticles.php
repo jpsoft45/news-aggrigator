@@ -87,7 +87,6 @@ class FetchNewsArticles extends Command
                 // Add other fields as necessary
             ]);
         }
-        dd("here");
     }
 
     protected function getSourceId()

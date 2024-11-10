@@ -74,12 +74,18 @@ class PreferenceController extends Controller
     {
         $user = $request->user();
         $validatedData = $request->validate([
-            'preferences' => 'required|array',
+            'preferences' => 'required|array|min:1',
             'preferences.*.type' => 'required|string|in:source,category,author',
             'preferences.*.value' => 'required|string',
         ]);
 
-        // Delete existing preferences
+        // Extract preference types from the incoming payload
+        $incomingTypes = collect($request->input('preferences'))->pluck('type')->toArray();
+
+        // Delete preferences that are NOT in the incoming payload
+        $user->preferences()->whereNotIn('preference_type', $incomingTypes)->delete();
+
+        // Prepare new preferences data for upsert
         $preferences = collect($request->input('preferences'))->map(function ($pref) use ($user) {
             return [
                 'user_id' => $user->id,
@@ -87,8 +93,8 @@ class PreferenceController extends Controller
                 'preference_value' => $pref['value'],
             ];
         })->toArray();
-        // Insert new preferences
 
+        // Upsert preferences (insert new or update existing)
         UserPreference::upsert(
             $preferences,
             ['user_id', 'preference_type'], // Unique constraints

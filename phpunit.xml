@@ -34,5 +34,9 @@
         <include>
             <directory suffix=".php">./app</directory>
         </include>
+        <report>
+            <html outputDirectory="coverage" />
+            <text />
+        </report>
     </coverage>
 </phpunit>

@@ -131,7 +131,7 @@ class ArticleController extends Controller
             });
         }
 
-        $articles = $query->paginate(10);
+        $articles = $query->with('source')->paginate(10);
         return response()->json($articles);
     }
 
@@ -241,7 +241,7 @@ class ArticleController extends Controller
             $query->whereIn('author', $authors);
         }
 
-        $articles = $query->paginate(10);
+        $articles = $query->with('source')->paginate(10);
         return response()->json($articles);
     }
 }
