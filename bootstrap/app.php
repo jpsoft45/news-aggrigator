@@ -12,6 +12,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         apiPrefix: 'api/v1',
     )
+    ->withCommands(
+        [
+            __DIR__.'/../commands/FetchNewsArticles.php',
+            __DIR__.'/../commands/FetchGuardianArticles.php',
+            __DIR__.'/../commands/FetchNYTimesArticles.php',
+        ]
+    )
     ->withMiddleware(function (Middleware $middleware) {
         //
     })

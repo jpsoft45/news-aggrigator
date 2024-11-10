@@ -90,7 +90,10 @@ NEWS_API_KEY=a1552c2570d04473974c3fd23872c591
 ### 6. ./vendor/bin/sail up -d
     - It will auto fetch all the dependencies and start the containers.
 ### 7. ./vendor/bin/sail artisan migrate
-
+## For the fetch articles from the news source api run the following command it will store the article in local database.
+    - ./vendor/bin/sail artisan app:fetch-news-articles
+    - ./vendor/bin/sail artisan app:fetch-guardian-articles
+    - ./vendor/bin/sail artisan app:fetch-n-y-times-articles
 ## For the swagger
     - Use url http://0.0.0.0/api/documentation
 
