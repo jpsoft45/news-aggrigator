@@ -85,6 +85,18 @@ NYTIMES_API_KEY=P1z4enAtC0KouO0OiqRgDBPqLU3sd87w
 GUARDIAN_API_KEY=a605ee43-4361-4d44-84e2-483bf522de83
 NEWS_API_KEY=a1552c2570d04473974c3fd23872c591
 ```
+
+```
+MAIL_MAILER=smtp
+MAIL_HOST=sandbox.smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=c8c0d5e2ea7d81
+MAIL_PASSWORD=2c8ae920d929e4
+```
+
+you can change the mailtrap.io account details to your own mailtrap.io account details
+
+
 ### 4. composer install
 ### 5. Start docker desktop
 ### 6. ./vendor/bin/sail up -d
