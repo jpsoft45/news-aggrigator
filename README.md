@@ -4,8 +4,8 @@
 
 ### 1 . Clone the repository
 ### 2 . cd into the project directory
-### 3 . cp .env.example .env i have share here my env that i had used during the development
-```APP_NAME=Laravel
+### 3 . cp .env.testing .env i have share here my env that i had used during the development
+```
 APP_ENV=local
 APP_KEY=base64:aA6ZtyOaoAGqEv2S+cKEJkP4A4ZMb3oQGXqlJSrN32U=
 APP_DEBUG=true
